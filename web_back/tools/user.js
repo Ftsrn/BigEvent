@@ -16,5 +16,21 @@ var user = {
       }
 
     })
+  },
+  logout: function (options) {
+    $.ajax({
+      type: 'post',
+      url: LOGOUT_URL,
+      success: function (res) {
+        if (res.code === 200) {
+          options.success();
+        } else {
+          options.fail();
+        }
+
+      }
+    })
+
   }
+
 }
